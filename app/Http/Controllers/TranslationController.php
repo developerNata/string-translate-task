@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Translation as TranslationRequest;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 class TranslationController extends Controller
 {
@@ -13,11 +14,10 @@ class TranslationController extends Controller
      * @return mixed
      */
     public function index( TranslationRequest $request ) {
-        $toTranslate = $request->to_translate;
         return [
             'success'       => true,
             'error'         => '',
-            'translation'   => $toTranslate
+            'translation'   => GoogleTranslate::trans($request->to_translate, 'uk', 'en')
         ];
     }
 }
