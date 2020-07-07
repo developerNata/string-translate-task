@@ -1,2 +1,5 @@
-# string-translate-task
-Test task
+# string-translate
+
+Run to start
+### `composer install && cp .env.example .env && php artisan key:generate && php artisan serve`
+
