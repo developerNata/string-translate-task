@@ -10,11 +10,10 @@ class TranslationControllerTest extends TestCase
     {
         $this->post('api/translate', [
             'to_translate' => 'how olw are you?'
-        ])
-            ->assertJsonStructure([
-                "success",
-                "error",
-                "translation"
-            ])->isOk();
+        ])->assertJsonStructure([
+            "success",
+            "error",
+            "translation"
+        ])->isOk();
     }
 }

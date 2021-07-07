@@ -11,13 +11,14 @@ class TranslationController extends Controller
      * Translate user's string.
      *
      * @param  \App\Http\Requests\Translation  $request
-     * @return mixed
+     * @return array
      */
     public function index( TranslationRequest $request ) {
+        $translation = GoogleTranslate::trans($request->to_translate, 'uk', 'en');
         return [
             'success'       => true,
             'error'         => '',
-            'translation'   => GoogleTranslate::trans($request->to_translate, 'uk', 'en')
+            'translation'   => $translation
         ];
     }
 }
